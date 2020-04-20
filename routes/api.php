@@ -18,4 +18,8 @@ Route::prefix('v1')->namespace('Api\v1')->group(function() {
     Route::apiResources([
         'cities' => 'CityController',
     ]);
+
+    Route::prefix('weather')->group(function() {
+        Route::get('/{city}', 'WeatherController@getWeatherByCity');
+    });
 });
